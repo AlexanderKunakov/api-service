@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: Test API
+  version: 1.0.0
+paths:
+  /test:
+    get:
+      summary: Test get
+      responses:
+        '200':
+          description: Test controller
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel'
+components:
+  schemas:
+    TestModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: false
+        name:
+          type: string
+          nullable: false
+        type:
+          type: string
+          nullable: false
+          enum:
+            - ONE
+            - TWO
+      required:
+        - id
+        - name
+        - type
